@@ -3855,15 +3855,15 @@ func Test_parseFromURI(t *testing.T) {
 	// prepare for local file
 	err := os.MkdirAll(path.Dir(localRelativeURI), 0755)
 	if err != nil {
-		fmt.Errorf("Test_parseFromURI() error: failed to create folder: %v, error: %v", path.Dir(localRelativeURI), err)
+		t.Errorf("Test_parseFromURI() error: failed to create folder: %v, error: %v", path.Dir(localRelativeURI), err)
 	}
 	yamlData, err := yaml.Marshal(localDevfile.Data)
 	if err != nil {
-		fmt.Errorf("Test_parseFromURI() error: failed to marshall devfile data: %v", err)
+		t.Errorf("Test_parseFromURI() error: failed to marshall devfile data: %v", err)
 	}
 	err = os.WriteFile(localRelativeURI, yamlData, 0644)
 	if err != nil {
-		fmt.Errorf("Test_parseFromURI() error: fail to write to file: %v", err)
+		t.Errorf("Test_parseFromURI() error: fail to write to file: %v", err)
 	}
 
 	if err != nil {
