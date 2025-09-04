@@ -54,7 +54,7 @@ func (d *DevfileCtx) ValidateDevfileSchema() error {
 		for _, desc := range result.Errors() {
 			errMsg = errMsg + fmt.Sprintf("- %s\n", desc)
 		}
-		return fmt.Errorf(errMsg)
+		return fmt.Errorf("%s", errMsg)
 	}
 
 	// Sucessful
